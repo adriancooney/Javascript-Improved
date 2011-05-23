@@ -1,5 +1,5 @@
 #Javascript Improved#
-###Overview###
+#Overview#
 This simple library is my take on improving and adding to some of Javascript's functionality. I am in no way hatin' on Javascript but I find myself writing the same stuff over and over, so I decided to just contain it in a syntax I'd like to use. Sorry about the pretty terrible documentation. My goal was not to release it to the public but more so for personal use. 
 
 What I have (maybe) improved/added so far:
@@ -11,9 +11,9 @@ What I have (maybe) improved/added so far:
 *	typeof
 *       $ and $$ for document selection
 
-###Usage###
+#Usage#
 
-* 	##__Random function__ -- `Math.rand`  
+* 	__Random function__ -- `Math.rand`  
 	Improved Javascript's random number generation by the ability to add range and scopes.  
 
 	 1. __Generate an integer (0-100)__ 
@@ -44,7 +44,7 @@ What I have (maybe) improved/added so far:
 	 `Math.rand("array", 10, 30, 90)`
 	
 	
-*	##__Conversion of Degrees/Radians__ -- `Math.convert`  
+*	__Conversion of Degrees/Radians__ -- `Math.convert`  
 	Adds conversion of degrees into radians and vice-versa.  
 	
 	1. __Degrees into radians__ 
@@ -54,7 +54,7 @@ What I have (maybe) improved/added so far:
 	`Math.convert.toDeg(radian)`
 	
 
-* 	##__Loops__ -- `execute, for, done`  
+* 	__Loops__ -- `execute, for, done`  
 	Probably the most use 'improvement'. Simplifies Javascript's for loop.  
 	
 	__Syntax:__  
@@ -134,7 +134,7 @@ What I have (maybe) improved/added so far:
                     if(i == limit-1) console.log("Done!");
 		}
 
-*   ##__Extending Objects__ -- `extend`  
+*   __Extending Objects__ -- `extend`  
     Extend Javascript objects much like jQuery's jQuery.extend.  
     
     __Syntax:__  
@@ -149,8 +149,8 @@ What I have (maybe) improved/added so far:
             extend(obj, host); //host = { foo: "bar" }
                 
                 
-*   ##__Typeof__ -- `typeOf`  
-   Barely improved the `typeof` functionality, just add's supports for object. I really only reccommend using this if you need to know if the data is an object or array but you can pass any data to it. Simples.  
+*	__Typeof__ -- `typeOf`  
+	Barely improved the `typeof` functionality, just add's supports for object. I really only reccommend using this if you need to know if the data is an object 		or array but you can pass any data to it. Simples.  
    
    __Syntax:__ 
  
@@ -164,15 +164,15 @@ What I have (maybe) improved/added so far:
            typeOf(obj); //"object"
            typeOf(arr); //"array"
         
-*  ##__Selecting__ -- `$ | $$`  
+*  __Selecting__ -- `$ | $$`  
    Just a simple shortcut for document.querySelectorAll and document.getElementById. __This is by no means a replacement for Sizzle.js!__  
    
-   Syntax:
+   __Syntax__:
 
            $(selector) //document.querySelectorAll
            $$(id) //document.getElementById
            
-   Examples:
+   __Examples__:
 
            $("body"); //Returns nodelist
            $$("body"); //Returns element with ID 'body'
