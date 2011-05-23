@@ -47,8 +47,6 @@ Math.rand = function(type, max, min, arr) {
 		};
 	}
 	
-	range(10, 20);
-	
 	switch ( type ) {
 		case "int":
 			if(max && min) {

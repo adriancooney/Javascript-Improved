@@ -4,25 +4,14 @@ var fn = {
             return undefined;
         } else {
                 switch( typeof data) {
-                    case "string":
-                        return "string";
-                        break;
-                   
-                    case "function":
-                        return "function";
-                        break;
-                       
                     case "object":
                         if(data[0]) { return "array"; }
                         else { return "object"; }
                         break;
-                       
-                    case "number":
-                        return "number";
-                        break;
                    
                     default:
-                        return "unknown";
+                        if(typeof data) return typeof data;
+			else return "unknown";
                 }
         }
     },
@@ -43,7 +32,7 @@ var fn = {
                 i++;
                 if(i == data) {
                     clearInterval(interval);
-                    if(that.onComplete) that.onComplete.call();
+                    if(that.onLoopComplete) that.onLoopComplete.call();
                 }
             }, time)
             return that;
@@ -53,7 +42,7 @@ var fn = {
                     for(var i=0; i<data; i++) {
                         that.loop.call(that, i);
                         if(i == data-1) {
-                            if(that.onComplete) that.onComplete.call();
+                            if(that.onLoopComplete) that.onLoopComplete.call();
                         }
                     }
             
@@ -64,7 +53,7 @@ var fn = {
                     for(var i=0; i<data.length; i++) {
                         that.loop.call(that, i, data[i]);
                         if(i == data.length-1) {
-                            if(that.onComplete) that.onComplete.call();
+                            if(that.onLoopComplete) that.onLoopComplete.call();
                         }
                     }
             
@@ -75,7 +64,7 @@ var fn = {
                     var i;
                     for(key in data) {
                         i++;
-                        that.loop.call(that, key, data[key]);
+                        that.loop.call(that, i, key, data[key]);
                     }
                     
                     return that;
@@ -85,17 +74,27 @@ var fn = {
     },
     
     done: function(callback) {
-        this.onComplete = callback;
+        this.onLoopComplete = callback;
         return this;
     },
 
-	extend: function(obj, host) {
-		if(!host) host = window;
-		
-		for(var key in obj) {
-			host[key] = obj[key];
-		}
-	}
+    extend: function(obj, host) {
+	    if(!host) host = window;
+	    
+	    for(var key in obj) {
+		    host[key] = obj[key];
+	    }
+	    
+	    return host;
+    },
+    
+    $: function() {
+        return document.querySelectorAll.apply(document, arguments)
+    },
+    
+    $$: function(id) {
+        return document.getElementById.apply(document, arguments)
+    }
 };
 
 fn.extend(fn);
