@@ -151,29 +151,29 @@ What I have (maybe) improved/added so far:
                 
 *	__Typeof__ -- `typeOf`  
 	Barely improved the `typeof` functionality, just add's supports for object. I really only reccommend using this if you need to know if the data is an object 		or array but you can pass any data to it. Simples.  
-   
-   __Syntax:__ 
- 
-           typeOf(variable)
-       
-   __Example:__  
 
-           var obj = {},
-           arr = [];
-           
-           typeOf(obj); //"object"
-           typeOf(arr); //"array"
+	__Syntax:__ 
+
+	        typeOf(variable)
+    
+	__Example:__  
+
+	        var obj = {},
+	        arr = [];
+        
+	        typeOf(obj); //"object"
+	        typeOf(arr); //"array"
         
 *  __Selecting__ -- `$ | $$`  
-   Just a simple shortcut for document.querySelectorAll and document.getElementById. __This is by no means a replacement for Sizzle.js!__  
-   
-   __Syntax__:
+	Just a simple shortcut for document.querySelectorAll and document.getElementById. __This is by no means a replacement for Sizzle.js!__  
 
-           $(selector) //document.querySelectorAll
-           $$(id) //document.getElementById
-           
-   __Examples__:
+	__Syntax__:
 
-           $("body"); //Returns nodelist
-           $$("body"); //Returns element with ID 'body'
+		$(selector) //document.querySelectorAll
+		$$(id) //document.getElementById
+
+	__Examples__:
+
+		$("body"); //Returns nodelist
+		$$("body"); //Returns element with ID 'body'
                 
