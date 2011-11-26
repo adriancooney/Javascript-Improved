@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loop.improved Testing</title>
+	<script src="../Loop.improved.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	
+	//Basic loop, log for 10 counts
+	console.log("Basic Loop:");
+	execute(function(count){
+		console.log("On: ", count);
+	}).for(10);
+	
+	//Array loop
+	console.log("Array Loop:");
+	execute(function(count, value) {
+		console.log("The " + value + " brown fox jumped over the lazy dog");
+	}).for(["quick", "fat", "thin", "young", "drunk", "really, really tired and profoundly overused"]);
+	
+	//Object loop
+	console.log("Object Loop:");
+	execute(function(count, key, value) {
+		console.log(key + " : " + value);
+	}).for({ foo: "bar", roo: "dar" });
+	
+	//Timed loop
+	console.log("Timed Loop:");
+	execute(function(count) {
+		console.log("Launch in: ", 10-count);
+	}).for(10, 1000);
+	
+	//Loop with on-start callback
+	console.log("On-complete Loop:");
+	execute(function(count) {
+		//Nothing to see here
+	}).start(function() {
+		console.log("This loop has started!")
+	}).for(10);
+	
+	//Loop with on-complete callback
+	console.log("On-complete Loop:");
+	execute(function(count) {
+		//Again, nothing to see here
+	}).done(function() {
+		console.log("This loop is done!")
+	}).for(10);
+	
+	//Mash them all together, sadly we cannot yet combine arrays and object with timed loops but should be coming soon!
+	console.log("A complete mashup: ");
+	execute(function(count) {
+		console.log("Tea minus " + (30 - count) + " seconds.");
+	}).start(function() {
+		console.log("Starting the countdown.");
+	}).done(function() {
+		console.log("WE HAVE LIFT OFF!");
+	}).for(30, 1000)
+	
+	</script>
+</head>
+
+<body>
+</body>
+</html>
